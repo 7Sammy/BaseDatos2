@@ -1,0 +1,61 @@
+Ejercicio 2: Que me devuelve un litado donde solo aparezca aquellos empleados que no tienen ningún departamento asociado
+SELECT
+    empleado.nombre AS NombreEmpleado,
+    empleado.apePaterno AS ApellidoPaterno,
+    empleado.apeMaterno AS ApellidoMaterno
+FROM
+    empleado
+LEFT JOIN
+    departamento ON empleado.codigo_departamento = departamento.codigo
+WHERE
+    empleado.codigo_departamento IS NULL;
+
+
+Ejercicio 3: Devuelve un listado donde sólo aparezcan aquellos departamentos que no tienen ningún empleado asociado.
+SELECT 
+    departamento.nombre AS NombreDepartamento
+FROM
+    departamento
+LEFT JOIN
+    empleado ON departamento.codigo = empleado.codigo_departamento
+WHERE
+    empleado.codigo_departamento IS NULL;
+
+
+Ejercicio 4:
+SELECT
+    e.nombre AS NombreEmpleado,
+    e.apePaterno AS ApellidoPaterno,
+    e.apeMaterno AS ApellidoMaterno,
+    d.nombre AS NombreDepartamento
+FROM
+    empleado e
+FULL OUTER JOIN
+    departamento d ON e.codigo_departamento = d.codigo
+ORDER BY
+    d.nombre;
+
+Ejercicio 5: Esta consulta está diseñada para encontrar y mostrar el nombre del departamento al que pertenece un empleado específico, en este caso, el empleado con el DNI "38382980M
+SELECT
+    d.nombre AS NombreDepartamento
+FROM
+    empleado e
+JOIN
+    departamento d ON e.codigo_departamento = d.codigo
+WHERE
+    e.dni = '38382980M';
+
+Ejercicio 6:
+SELECT
+    d.nombre AS NombreDepartamento
+FROM
+    empleado e
+JOIN
+    departamento d ON e.codigo_departamento = d.codigo
+WHERE
+    e.nombre = 'Pepe'
+    AND e.apePaterno = 'Ruiz'
+    AND e.apeMaterno = 'Santana';
+
+Ejercicio 07:
+
